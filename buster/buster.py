@@ -71,6 +71,7 @@ def main():
                 href = e.attr('href')
                 if not abs_url_regex.search(href):
                     new_href = re.sub(r'/index\.html$', '/', href)
+                    new_href = re.sub(r'index.html#', '#', new_href)
                     new_href = re.sub(r'index.html', '/', new_href)
                     e.attr('href', new_href)
                     print "\t", href, "=>", new_href
